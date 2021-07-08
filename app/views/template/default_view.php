@@ -9,18 +9,25 @@
     </head>
     <body>
     <header>
-        <h1>Site name</h1>
+        <h1>Logo</h1>
+        <a href="<?= \core\Router::getUrl('front', 'contacts')?>"><div>Contacts</div></a>
+        <a href="<?= \core\Router::getUrl('front', 'main')?>"><div>Main</div></a>
     </header>
     <nav>
-
+        <ul>
+            <li>Pants</li>
+            <li>T-shirts</li>
+            <li>Underwear</li>
+            <li>Boots</li>
+        </ul>
     </nav>
     <main>
         <?php
-        include_once 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . $pageView;
+        include_once 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . $pageFile;
         ?>
     </main>
     <footer>
-        <span><a href="https://github.com/VovchenkoMykyta/test-my-mvc.git">VovchenkoMykyta &copy;</a></span>
+        <span><a href="https://github.com/VovchenkoMykyta/mw-shop.git">VovchenkoMykyta &copy;</a></span>
     </footer>
     </body>
 </html>
