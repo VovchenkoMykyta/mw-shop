@@ -9,7 +9,7 @@
     </head>
     <body>
     <header>
-        <h1>Logo</h1>
+        <a href="<?= \core\Router::getUrl('index', 'index')?>"><h1>Logo</h1></a>
         <a href="<?= \core\Router::getUrl('front', 'contacts')?>"><div>Contacts</div></a>
         <a href="<?= \core\Router::getUrl('front', 'main')?>"><div>Main</div></a>
     </header>
