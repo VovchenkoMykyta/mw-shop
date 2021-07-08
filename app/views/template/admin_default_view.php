@@ -8,6 +8,16 @@
         <title>Document</title>
     </head>
     <body>
-
+        <header>
+            <div>Admin panel</div>
+        </header>
+        <main>
+            <?php
+            include_once 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . $pageFile;
+            ?>
+        </main>
+        <footer>
+            <span><a href="https://github.com/VovchenkoMykyta/mw-shop.git">VovchenkoMykyta &copy;</a></span>
+        </footer>
     </body>
 </html>

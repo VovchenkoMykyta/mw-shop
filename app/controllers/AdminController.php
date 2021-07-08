@@ -12,6 +12,6 @@ class AdminController extends BaseController
     public function index()
     {
         $view = new View();
-        $view->render('admin_default_view.php', 'admin_login.php');
+        $view->render('admin_login.php', 'admin_default_view.php');
     }
 }
