@@ -14,13 +14,13 @@ class FrontModel
     }
 
     public function getAllImg(){
-        $sql = "SELECT img_url, `char` FROM `product_images` where `char` is not null;";
+        $sql = "SELECT img_url, `char`, product_id FROM `product_images` where `char` is not null;";
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getPrice(){
-        $sql = "SELECT img_url, `char` FROM `product_images` where `char` is not null;";
+        $sql = "SELECT products.id, products.price FROM `products` INNER JOIN product_images WHERE product_images.product_id = products.id GROUP by products.id";
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
