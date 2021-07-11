@@ -5,6 +5,7 @@ namespace controllers;
 
 
 use core\View;
+use models\FrontModel;
 
 class FrontController
 {
