@@ -6,19 +6,22 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Test site</title>
+        <link rel="stylesheet" href="/css/index.css">
     </head>
     <body>
     <header>
-        <a href="<?= \core\Router::getUrl('index', 'index')?>"><h1>Logo</h1></a>
-        <a href="<?= \core\Router::getUrl('front', 'contacts')?>"><div>Contacts</div></a>
-        <a href="<?= \core\Router::getUrl('front', 'main')?>"><div>Main</div></a>
+        <span><a href="<?= \core\Router::getUrl('index', 'index')?>"><img src="/images/small_logo.png" alt="Logo" id="main_logo"/></a></span>
+        <div>
+            <a href="<?= \core\Router::getUrl('front', 'contacts')?>"><div class="div_header">Contacts</div></a>
+            <a href="<?= \core\Router::getUrl('front', 'main')?>"><div class="div_header">Main</div></a>
+        </div>
     </header>
     <nav>
         <ul>
-            <li>Pants</li>
-            <li>T-shirts</li>
-            <li>Underwear</li>
-            <li>Boots</li>
+            <li><a href="<?= \core\Router::getUrl('front', 'pants')?>">Pants</a></li>
+            <li><a href="<?= \core\Router::getUrl('front', 't_shirts')?>">T-shirts</a></li>
+            <li><a href="<?= \core\Router::getUrl('front', 'underwear')?>">Underwear</a></li>
+            <li><a href="<?= \core\Router::getUrl('front', 'boots')?>">Boots</a></li>
         </ul>
     </nav>
     <main>
