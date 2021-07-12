@@ -12,16 +12,16 @@
     <header>
         <span><a href="<?= \core\Router::getUrl('index', 'index')?>"><img src="/images/small_logo.png" alt="Logo" id="main_logo"/></a></span>
         <div>
-            <a href="<?= \core\Router::getUrl('front', 'contacts')?>"><div class="div_header">Contacts</div></a>
-            <a href="<?= \core\Router::getUrl('front', 'main')?>"><div class="div_header">Main</div></a>
+            <a href="<?= \core\Router::getUrl('view', 'contacts')?>"><div class="div_header">Contacts</div></a>
+            <a href="<?= \core\Router::getUrl('view', 'main')?>"><div class="div_header">Main</div></a>
         </div>
     </header>
     <nav>
         <ul>
-            <li><a href="<?= \core\Router::getUrl('front', 'pants')?>">Pants</a></li>
-            <li><a href="<?= \core\Router::getUrl('front', 't_shirts')?>">T-shirts</a></li>
-            <li><a href="<?= \core\Router::getUrl('front', 'underwear')?>">Underwear</a></li>
-            <li><a href="<?= \core\Router::getUrl('front', 'boots')?>">Boots</a></li>
+            <li><a href="<?= \core\Router::getUrl('view', 'pants')?>">Pants</a></li>
+            <li><a href="<?= \core\Router::getUrl('view', 't_shirts')?>">T-shirts</a></li>
+            <li><a href="<?= \core\Router::getUrl('view', 'underwear')?>">Underwear</a></li>
+            <li><a href="<?= \core\Router::getUrl('view', 'boots')?>">Boots</a></li>
         </ul>
     </nav>
     <main>
