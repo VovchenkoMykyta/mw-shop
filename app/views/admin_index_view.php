@@ -5,7 +5,7 @@
     <ul>
         <li>User
             <ul>
-                <li>Add User</li>
+                <li><a href="<?= \core\Router::getUrl('view', 'add_user')?>">Add User</a></li>
                 <li>Delete User</li>
                 <li>Users Info</li>
             </ul>

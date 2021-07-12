@@ -1,0 +1,18 @@
+body main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 93vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 35vw;
+}
+form input{
+    margin: 10px;
+}
+
+form input[type='submit']{
+    max-width: 10vw;
+}

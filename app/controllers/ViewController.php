@@ -38,4 +38,8 @@ class ViewController
         $view = new View();
         $view->render('admin_index_view.php', 'admin_default_view.php');
     }
+    public function add_user(){
+        $view = new View();
+        $view->render('admin_add_user_view.php', 'admin_default_view.php');
+    }
 }
