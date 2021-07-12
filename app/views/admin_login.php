@@ -7,7 +7,3 @@
     </label>
     <input type="submit" value="login">
 </form>
-<?php
-$psw = password_hash('admin', PASSWORD_DEFAULT );
-
-var_dump(password_verify('admin', $psw));

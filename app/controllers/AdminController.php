@@ -27,7 +27,9 @@ class AdminController extends BaseController
         foreach ($user as $item){
             $db_pass = $item['password'];
             if(password_verify($psw, $db_pass)){
-                Router::redirect();
+                Router::redirect('view', 'admin_index');
+            }else{
+                Router::error404();
             }
         }
     }

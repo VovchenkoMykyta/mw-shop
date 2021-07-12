@@ -34,4 +34,8 @@ class ViewController
         $view = new View();
         $view->render('boots_index.php', 'default_view.php');
     }
+    public function admin_index(){
+        $view = new View();
+        $view->render('admin_index_view.php', 'admin_default_view.php');
+    }
 }
