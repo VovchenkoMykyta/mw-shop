@@ -1,8 +1,5 @@
-body main{
+main{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 93vh;
 }
 form{
     display: flex;
@@ -15,4 +12,17 @@ form input{
 
 form input[type='submit']{
     max-width: 10vw;
+}
+main div#lsb{
+    min-width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(70,70,69,0.24);
+}
+main div#main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 70vw;
 }

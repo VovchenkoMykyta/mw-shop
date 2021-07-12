@@ -1,0 +1,19 @@
+header{
+    min-height: 15vh;
+    display: flex;
+    /*align-items: center;*/
+    justify-content: center;
+}
+div#header{
+    text-align: center;
+    min-height: 12vh;
+    padding: 10px;
+}
+div#lsb{
+
+}
+div#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
