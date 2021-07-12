@@ -55,7 +55,7 @@ nav ul li a{
 /*=====================================================|Body|=========================================================*/
 
 body main{
-    min-height: 93vh;
+    min-height: 80vh;
 }
 main div.main_photo{
     display: flex;

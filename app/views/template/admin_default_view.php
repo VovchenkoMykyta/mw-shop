@@ -17,6 +17,7 @@
         <main>
             <div id="lsb">
                 <ul>
+                    <li><a href="<?= \core\Router::getUrl('view', 'admin_index')?>">Main</a></li>
                     <li>User
                         <ul>
                             <li><a href="<?= \core\Router::getUrl('view', 'add_user')?>">Add User</a></li>

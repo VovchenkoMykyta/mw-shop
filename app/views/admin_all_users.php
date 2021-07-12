@@ -3,7 +3,7 @@ $model = new \models\AdminModel();
 $users = $model->getAllUsers();
 ?>
 <h2>All users</h2>
-<table><tr><th>id</th><th>login</th><th>password</th><th>email</th><th>options</th></tr>
+<table><tr><th>id</th><th>login</th><th>password</th><th>email</th><th colspan="2">options</th></tr>
 <?php foreach ($users as $user): ?>
     <tr>
         <td><?= $user['id'] ?></td>

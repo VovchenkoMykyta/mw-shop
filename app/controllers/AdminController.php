@@ -41,12 +41,13 @@ class AdminController extends BaseController
         $login = filter_input(INPUT_POST, 'login');
         $psw = filter_input(INPUT_POST, 'pass');
         $email = filter_input(INPUT_POST, 'email');
+        $creation_date = date('Y-m-d H-i-s');
         $model = new AdminModel();
         $user = $model->getUser($login);
         if($user === []){
             $psw = password_hash($psw, PASSWORD_DEFAULT);
-            $model->addUser($login, $psw, $email);
-            Router::redirect('view', 'admin_index');
+            $model->addUser($login, $psw, $email, $creation_date, null);
+            Router::redirect('view', 'all_users');
         }else{
             echo "User exist";
         }

@@ -42,9 +42,9 @@ class AdminModel
      * @param $password | string
      * @param $email |string
      */
-    public function addUser($login, $password, $email)
+    public function addUser($login, $password, $email, $creation_date, $delete_date)
     {
-        $sql = "INSERT INTO `users` (`id`, `login`, `password`, `email`) VALUES (NULL, '$login', '$password', '$email');";
+        $sql = "INSERT INTO `users` (`id`, `login`, `password`, `email`, `creation_date`, `delete_date`) VALUES (NULL, '$login', '$password', '$email', '$creation_date', NULL);";
         $this->db->query($sql);
     }
 

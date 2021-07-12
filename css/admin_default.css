@@ -1,8 +1,16 @@
+*{
+    margin: 0;
+}
+body{
+    margin: 0 5px;
+}
 header{
     min-height: 15vh;
     display: flex;
-    /*align-items: center;*/
     justify-content: center;
+}
+main{
+    display: flex;
 }
 div#header{
     text-align: center;
@@ -10,7 +18,11 @@ div#header{
     padding: 10px;
 }
 div#lsb{
-
+    min-width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(70,70,69,0.24);
 }
 div#main{
     display: flex;
