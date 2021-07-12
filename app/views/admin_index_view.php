@@ -6,8 +6,7 @@
         <li>User
             <ul>
                 <li><a href="<?= \core\Router::getUrl('view', 'add_user')?>">Add User</a></li>
-                <li>Delete User</li>
-                <li>Users Info</li>
+                <li><a href="<?= \core\Router::getUrl('view', 'all_users')?>">Users Info</a></li>
             </ul>
         </li>
         <li>Product
@@ -18,6 +17,7 @@
         <li>Category
             <ul>
                 <li>All Categories</li>
+                <li>Add Category</li>
             </ul>
         </li>
     </ul>

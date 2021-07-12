@@ -16,6 +16,9 @@ class AdminController extends BaseController
         $view = new View();
         $view->render('admin_login.php', 'admin_default_view.php');
     }
+    public function getAllUsers(){
+
+    }
 
     public function verify()
     {
@@ -32,5 +35,29 @@ class AdminController extends BaseController
                 Router::error404();
             }
         }
+    }
+
+    public function addUser(){
+        $login = filter_input(INPUT_POST, 'login');
+        $psw = filter_input(INPUT_POST, 'pass');
+        $email = filter_input(INPUT_POST, 'email');
+        $model = new AdminModel();
+        $user = $model->getUser($login);
+        if($user === []){
+            $psw = password_hash($psw, PASSWORD_DEFAULT);
+            $model->addUser($login, $psw, $email);
+            Router::redirect('view', 'admin_index');
+        }else{
+            echo "User exist";
+        }
+    }
+
+    public function deleteUser(){
+        $delete_date = date('Y-m-d H-i-s');
+        $id = filter_input(INPUT_POST, 'id');
+        $model = new AdminModel();
+        $model->deleteUser($id, $delete_date);
+//        var_dump($delete_date);
+        Router::redirect('view', 'all_users');
     }
 }

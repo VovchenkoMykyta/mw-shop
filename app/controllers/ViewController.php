@@ -42,4 +42,8 @@ class ViewController
         $view = new View();
         $view->render('admin_add_user_view.php', 'admin_default_view.php');
     }
+    public function all_users(){
+        $view = new View();
+        $view->render('admin_all_users.php', 'admin_default_view.php');
+    }
 }
