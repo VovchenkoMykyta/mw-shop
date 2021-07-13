@@ -9,6 +9,9 @@ main form{
     flex-direction: column;
     align-items: center;
 }
+main div#lsb{
+    display: none;
+}
 form input{
     margin: 10px;
 }
