@@ -1,0 +1,19 @@
+div#main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 80vw;
+    align-items: center;
+}
+div#main form{
+    display: flex;
+    flex-direction: column;
+    max-width: 35vw;
+    align-items: center;
+}
+form input{
+    margin: 10px;
+}
+form input[type='submit']{
+    min-width: 8vw;
+}

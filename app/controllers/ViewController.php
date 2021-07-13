@@ -42,8 +42,16 @@ class ViewController
         $view = new View();
         $view->render('admin_add_user_view.php', 'admin_default_view.php');
     }
+    public function add_phone(){
+        $view = new View();
+        $view->render('admin_add_user_phone.php', 'admin_default_view.php');
+    }
     public function all_users(){
         $view = new View();
         $view->render('admin_all_users.php', 'admin_default_view.php');
+    }
+    public function edit_user(){
+        $view = new View();
+        $view->render('admin_edit_user.php', 'admin_default_view.php');
     }
 }

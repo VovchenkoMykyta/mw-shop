@@ -26,7 +26,6 @@ class AdminController extends BaseController
         $psw = filter_input(INPUT_POST, 'pass');
         $model = new AdminModel();
         $user = $model->getUser($login);
-        var_dump($user, $login, $psw);
         foreach ($user as $item){
             $db_pass = $item['password'];
             if(password_verify($psw, $db_pass)){
@@ -46,7 +45,8 @@ class AdminController extends BaseController
         $user = $model->getUser($login);
         if($user === []){
             $psw = password_hash($psw, PASSWORD_DEFAULT);
-            $model->addUser($login, $psw, $email, $creation_date, null);
+            $user = $model->getUser($login);
+            $model->addUser($login, $psw, $email, $creation_date);
             Router::redirect('view', 'all_users');
         }else{
             echo "User exist";
@@ -58,7 +58,25 @@ class AdminController extends BaseController
         $id = filter_input(INPUT_POST, 'id');
         $model = new AdminModel();
         $model->deleteUser($id, $delete_date);
-//        var_dump($delete_date);
+        Router::redirect('view', 'all_users');
+    }
+
+    public function addPhone(){
+        $id = filter_input(INPUT_POST, 'id');
+        $phone = filter_input(INPUT_POST, 'phone');
+        $model = new AdminModel();
+        $model->addPhone($id, $phone);
+        Router::redirect('view', 'all_users');
+    }
+
+    public function editUser(){
+        $id = filter_input(INPUT_POST, 'id');
+        $login = filter_input(INPUT_POST, 'login');
+        $email = filter_input(INPUT_POST, 'email');
+        $phone = filter_input(INPUT_POST, 'phone_number');
+        $model = new AdminModel();
+        $model->editUser($id, $login, $email);
+        $model->editUserPhone($id, $phone);
         Router::redirect('view', 'all_users');
     }
 }
