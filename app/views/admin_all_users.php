@@ -10,11 +10,11 @@ $users = $model->getAllUsers();
         <td><?= $user['login'] ?></td>
         <td><?= mb_substr($user['password'], 0, 15) . '...' ?></td>
         <td><?= $user['email'] ?></td>
-        <td><?php $phones = $model->getUserPhone($user['id']);
-         foreach ($phones as $phone){
-             echo $phone['phone_number'];
-         }
-         ?></td>
+        <td><?php
+            $phones = $model->getUserPhone($user['id']);
+            foreach ($phones as $phone){
+                echo "<div>".$phone['phone_number']."</div>";
+            }?></td>
         <td><?= $user['creation_date'] ?></td>
         <td>
             <form action="<?=\core\Router::getUrl('admin', 'deleteUser')?>" method="post">
@@ -27,8 +27,8 @@ $users = $model->getAllUsers();
                 <input type="hidden" name="login" value="<?= $user['login'] ?>">
                 <input type="hidden" name="id" value="<?= $user['id'] ?>">
                 <input type="hidden" name="phone_number" value="<?php foreach ($phones as $phone){
-                    echo $phone['phone_number'];
-                } ?>">
+                        echo $phone['phone_number'];
+                };?>">
                 <input type="hidden" name="email" value="<?= $user['email'] ?>">
                 <input type="submit" value="Edit">
             </form>
