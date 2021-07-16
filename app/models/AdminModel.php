@@ -78,16 +78,18 @@ class AdminModel
         $this->db->query($sql);
     }
     public function editUserPhone($id, $phone){
+
         $sql1 = "SELECT id FROM `phone_numbers` WHERE user_id = '$id'";
         $result = $this->db->query($sql1);
         if(is_array($phone)){
+            $i = 0;
             foreach ($result as $item){
                 $updateId = $item['id'];
-                for($i = 0; $i < 1; $i++){
-                    $phoneNum = $phone[$i];
-                    $sql2 = "UPDATE `phone_numbers` SET `phone_number` = '$phoneNum' WHERE `phone_numbers`.`id` = '$updateId';";
-                    $this->db->query($sql2);
-                }
+                $phoneNum = $phone[$i];
+                $sql2 = "UPDATE `phone_numbers` SET `phone_number` = '$phoneNum' WHERE `phone_numbers`.`id` = '$updateId';";
+                $this->db->query($sql2);
+                $i++;
+                var_dump($updateId, $phoneNum, "new");
             }
         }else{
             $sql2 = "UPDATE `phone_numbers` SET `phone_number` = '$phone' WHERE `phone_numbers`.`user_id` = '$id';";

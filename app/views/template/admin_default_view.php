@@ -27,6 +27,7 @@
                     <li>Product
                         <ul>
                             <li>All Products</li>
+                            <li>Add Product</li>
                         </ul>
                     </li>
                     <li>Category
