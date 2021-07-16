@@ -49,9 +49,13 @@ class AdminModel
      * @param $creation_date | string
      * @param $phone | string
      */
-    public function addUser($login, $password, $email, $creation_date)
+    public function addUser($login, $password, $email, $creation_date, $phone)
     {
+        $mysqli = $this->db = new \mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         $sql = "INSERT INTO `users` (`id`, `login`, `password`, `email`, `creation_date`, `delete_date`) VALUES (NULL, '$login', '$password', '$email', '$creation_date', NULL);";
+        $this->db->query($sql);
+        $id = mysqli_insert_id($mysqli);
+        $sql = "INSERT INTO `phone_numbers` (`id`, `user_id`, `phone_number`) VALUES (NULL, '$id', '$phone');";
         $this->db->query($sql);
     }
 
@@ -74,7 +78,20 @@ class AdminModel
         $this->db->query($sql);
     }
     public function editUserPhone($id, $phone){
-        $sql = "UPDATE `phone_numbers` SET `phone_number` = '$phone' WHERE `phone_numbers`.`user_id` = '$id';";
-        $this->db->query($sql);
+        $sql1 = "SELECT id FROM `phone_numbers` WHERE user_id = '$id'";
+        $result = $this->db->query($sql1);
+        if(is_array($phone)){
+            foreach ($result as $item){
+                $updateId = $item['id'];
+                for($i = 0; $i < 1; $i++){
+                    $phoneNum = $phone[$i];
+                    $sql2 = "UPDATE `phone_numbers` SET `phone_number` = '$phoneNum' WHERE `phone_numbers`.`id` = '$updateId';";
+                    $this->db->query($sql2);
+                }
+            }
+        }else{
+            $sql2 = "UPDATE `phone_numbers` SET `phone_number` = '$phone' WHERE `phone_numbers`.`user_id` = '$id';";
+            $this->db->query($sql2);
+        }
     }
 }

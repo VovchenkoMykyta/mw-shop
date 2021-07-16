@@ -9,6 +9,9 @@
     $user['login'] .= filter_input(INPUT_POST, 'login');
     $user['email'] .= filter_input(INPUT_POST, 'email');
     $user['phone_number'] .= filter_input(INPUT_POST, 'phone_number');
+    $amountOfPhones = substr_count($user['phone_number'], '+');
+    $phones = [];
+    $phones = str_split($user['phone_number'], 13);
 ?>
 
 <form action="<?=\core\Router::getUrl('admin', 'editUser')?>" method="post">
@@ -19,8 +22,14 @@
     <label>Email:
         <input type="text" name="email" value="<?=$user['email']?>">
     </label>
-    <label>Phone:
-        <input type="text" name="phone_number" value="<?=$user['phone_number']?>">
-    </label>
+    <?php
+        if($amountOfPhones){
+            for($i = 0; $i < $amountOfPhones; $i++){
+                echo "<label> Phone:
+                    <input type='text' name='phone_number[]' value='$phones[$i]'>
+                </label>";
+            }
+        }
+    ?>
     <input type="submit" value="Edit">
 </form>
