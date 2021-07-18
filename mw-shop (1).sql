@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 13, 2021 at 03:55 PM
+-- Generation Time: Jul 18, 2021 at 07:06 PM
 -- Server version: 8.0.24
 -- PHP Version: 8.0.7
 
@@ -29,10 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `id` bigint UNSIGNED NOT NULL,
-  `product_id` bigint UNSIGNED NOT NULL,
-  `img_url` text NOT NULL,
+  `img_url` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `img_url`, `name`) VALUES
+(1, NULL, 'Джинсы');
 
 -- --------------------------------------------------------
 
@@ -79,15 +85,17 @@ CREATE TABLE `phone_numbers` (
 
 INSERT INTO `phone_numbers` (`id`, `user_id`, `phone_number`) VALUES
 (1, 1, '+380665754516'),
-(2, 6, '+380933261453'),
+(2, 6, '+380445566281'),
 (4, 8, '+380933261455'),
-(5, 12, '+38099557789'),
-(6, 15, '+380665533221'),
-(7, 15, '+38044556628'),
-(8, 12, '+38099557788'),
+(5, 12, '+380665754516'),
+(6, 15, '+380445566289'),
+(7, 15, '+380445566281'),
+(8, 12, '+380665754516'),
 (9, 1, '+380994455663'),
-(10, 16, '+380665533221'),
-(11, 16, '+38044556628');
+(10, 16, '+380665754516'),
+(11, 16, '+380665754516'),
+(12, 17, '+380665754518'),
+(13, 17, '');
 
 -- --------------------------------------------------------
 
@@ -100,18 +108,20 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `describtion` text NOT NULL,
   `characters` text NOT NULL,
+  `category_id` bigint UNSIGNED NOT NULL,
   `price` decimal(10,0) NOT NULL,
-  `manufacturer` varchar(100) NOT NULL
+  `manufacturer` varchar(100) NOT NULL,
+  `delete_character` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `describtion`, `characters`, `price`, `manufacturer`) VALUES
-(1, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n79% хлопок, 20% переработанный хлопок, 1% эластан.', '664', 'no name'),
-(2, 'Джинсы из жесткого хлопкового материала', 'Джинсы из жесткого хлопкового материала', 'Машинная стирка.\r\n100% хлопок.', '532', 'no name'),
-(3, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n98% хлопок, 2% эластан.', '664', 'no name');
+INSERT INTO `products` (`id`, `name`, `describtion`, `characters`, `category_id`, `price`, `manufacturer`, `delete_character`) VALUES
+(1, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n79% хлопок, 20% переработанный хлопок, 1% эластан.', 1, '664', 'no name', NULL),
+(2, 'Джинсы из жесткого хлопкового материала', 'Джинсы из жесткого хлопкового материала', 'Машинная стирка.\r\n100% хлопок.', 1, '532', 'no name', NULL),
+(3, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n98% хлопок, 2% эластан.', 1, '664', 'no name', NULL);
 
 -- --------------------------------------------------------
 
@@ -167,7 +177,8 @@ INSERT INTO `users` (`id`, `login`, `password`, `email`, `creation_date`, `delet
 (8, 'userOne', '$2y$10$VvDzv8fJibSN8qH4GwJsZ.SOTcv3NrIN.c/.UNBNolZjhgEIYiSOi', 'user@mail.ru', '2021-07-12 22:43:07', '2021-07-12 22:44:40'),
 (12, 'nikita', '$2y$10$dlsylbMTlSgmctB3VrcDtehMrp6WdDQC39dF4SA54pbHvUbw7pRv.', 'nikita123@gmail.com', '2021-07-13 14:22:35', NULL),
 (15, 'mykyta', '$2y$10$mw4MBfrOW3N.hd/lXusFAetBxU3Lpa6taXgpI6kqtfsGean6NDMsq', 'mykyta456@gmail.com', '2021-07-13 14:31:38', NULL),
-(16, 'user_4', '$2y$10$gQAfuuliOcWFusD2qJK3Pu1zbeOAMeBrgBTI0C5rVrNi0rfC66ZXu', 'user657@gmail.com', '2021-07-13 15:35:41', NULL);
+(16, 'user4', '$2y$10$gQAfuuliOcWFusD2qJK3Pu1zbeOAMeBrgBTI0C5rVrNi0rfC66ZXu', 'user67@gmail.com', '2021-07-13 15:35:41', NULL),
+(17, 'vovchenko_1659', '$2y$10$AhJJrMs3CpgIUkv.fQEtbe4znPgzPq1KumD3OFiDuDo7HjfTYMrTa', 'some@gmail.com', '2021-07-16 15:55:50', NULL);
 
 --
 -- Indexes for dumped tables
@@ -177,8 +188,7 @@ INSERT INTO `users` (`id`, `login`, `password`, `email`, `creation_date`, `delet
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `orders`
@@ -205,7 +215,8 @@ ALTER TABLE `phone_numbers`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indexes for table `product_images`
@@ -229,7 +240,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -247,7 +258,7 @@ ALTER TABLE `orders_products`
 -- AUTO_INCREMENT for table `phone_numbers`
 --
 ALTER TABLE `phone_numbers`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -265,17 +276,11 @@ ALTER TABLE `product_images`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `categories`
---
-ALTER TABLE `categories`
-  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `orders_products`
@@ -289,6 +294,12 @@ ALTER TABLE `orders_products`
 --
 ALTER TABLE `phone_numbers`
   ADD CONSTRAINT `phone_numbers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `product_images`
