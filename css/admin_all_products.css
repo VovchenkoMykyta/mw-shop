@@ -1,6 +1,7 @@
 table{
     box-sizing: border-box;
     border-collapse: collapse;
+    margin: 30px;
 }
 table th,tr,td{
     border: 1px solid black;
@@ -10,7 +11,7 @@ table td{
     max-width: 15vw;
 }
 main table td.form{
-    min-width: 6vw;
+    max-width: 6vw;
 }
 main div#main{
     display: flex;

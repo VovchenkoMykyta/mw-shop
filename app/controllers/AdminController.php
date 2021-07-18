@@ -81,4 +81,12 @@ class AdminController extends BaseController
         $model->editUserPhone($id, $phone);
         Router::redirect('view', 'all_users');
     }
+
+    public function deleteProduct(){
+        $id = filter_input(INPUT_POST, 'id');
+        $char = 'deleted';
+        $model = new AdminModel();
+        $model->deleteProduct($id, $char);
+        Router::redirect('view', 'all_products');
+    }
 }

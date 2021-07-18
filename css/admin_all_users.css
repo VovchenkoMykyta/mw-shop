@@ -1,6 +1,7 @@
 table{
     box-sizing: border-box;
     border-collapse: collapse;
+    margin: 30px;
 }
 table th,tr,td{
     border: 1px solid black;

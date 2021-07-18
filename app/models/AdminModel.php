@@ -106,8 +106,14 @@ class AdminModel
 
     public function getProducts()
     {
-        $sql = "SELECT * FROM `products`";
+        $sql = "SELECT * FROM `products` where `delete_character` is null";
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function deleteProduct($id, $char)
+    {
+        $sql = "UPDATE `products` SET `delete_character` = '$char' WHERE `products`.`id` = '$id';";
+        $this->db->query($sql);
     }
 }
