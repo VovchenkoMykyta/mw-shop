@@ -54,4 +54,8 @@ class ViewController
         $view = new View();
         $view->render('admin_edit_user.php', 'admin_default_view.php');
     }
+    public function all_products(){
+        $view = new View();
+        $view->render('admin_all_products.php', 'admin_default_view.php');
+    }
 }

@@ -36,7 +36,9 @@ class AdminModel
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getUserPhone($id){
+
+    public function getUserPhone($id)
+    {
         $sql = "SELECT phone_number FROM `phone_numbers` WHERE user_id = '$id'";
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -59,7 +61,8 @@ class AdminModel
         $this->db->query($sql);
     }
 
-    public function addPhone($id, $phone){
+    public function addPhone($id, $phone)
+    {
         $sql = "INSERT into `phone_numbers`(`id`, `user_id`, `phone_number`) VALUES (NULL, '$id', '$phone')";
         $this->db->query($sql);
     }
@@ -73,17 +76,21 @@ class AdminModel
         $sql = "UPDATE `users` SET `delete_date` = '$delete_date' WHERE `users`.`id` = '$id';";
         $this->db->query($sql);
     }
-    public  function editUser($id, $login, $email){
+
+    public function editUser($id, $login, $email)
+    {
         $sql = "UPDATE `users` SET `login` = '$login', `email` = '$email' WHERE `users`.`id` = '$id';";
         $this->db->query($sql);
     }
-    public function editUserPhone($id, $phone){
+
+    public function editUserPhone($id, $phone)
+    {
 
         $sql1 = "SELECT id FROM `phone_numbers` WHERE user_id = '$id'";
         $result = $this->db->query($sql1);
-        if(is_array($phone)){
+        if (is_array($phone)) {
             $i = 0;
-            foreach ($result as $item){
+            foreach ($result as $item) {
                 $updateId = $item['id'];
                 $phoneNum = $phone[$i];
                 $sql2 = "UPDATE `phone_numbers` SET `phone_number` = '$phoneNum' WHERE `phone_numbers`.`id` = '$updateId';";
@@ -91,9 +98,16 @@ class AdminModel
                 $i++;
                 var_dump($updateId, $phoneNum, "new");
             }
-        }else{
+        } else {
             $sql2 = "UPDATE `phone_numbers` SET `phone_number` = '$phone' WHERE `phone_numbers`.`user_id` = '$id';";
             $this->db->query($sql2);
         }
+    }
+
+    public function getProducts()
+    {
+        $sql = "SELECT * FROM `products`";
+        $result = $this->db->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }

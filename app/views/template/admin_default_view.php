@@ -26,7 +26,7 @@
                     </li>
                     <li>Product
                         <ul>
-                            <li>All Products</li>
+                            <li><a href="<?= \core\Router::getUrl('view', 'all_products')?>">All Products</a></li>
                             <li>Add Product</li>
                         </ul>
                     </li>
