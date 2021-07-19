@@ -6,7 +6,7 @@ $prices = $model->getPrice();
 <div class="main_photo">
 <?php foreach ($images as $key => $image): ?>
     <div>
-        <img src="<?= $image['img_url'] ?>" alt="mans_jeans">
+        <img src="<?= str_replace(" ", "", $image['img_url']) ?>" alt="<?= $image['img_url'] ?>">
         <div>
         <?php foreach ($prices as $price): ?>
             <?php if ($image['product_id'] === $price['id']): ?>
