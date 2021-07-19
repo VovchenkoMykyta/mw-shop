@@ -85,7 +85,6 @@ class AdminModel
 
     public function editUserPhone($id, $phone)
     {
-
         $sql1 = "SELECT id FROM `phone_numbers` WHERE user_id = '$id'";
         $result = $this->db->query($sql1);
         if (is_array($phone)) {
@@ -106,7 +105,7 @@ class AdminModel
 
     public function getProducts()
     {
-        $sql = "SELECT * FROM `products` where `delete_character` is null";
+        $sql = "SELECT products.id, products.name, products.describtion, products.characters,categories.name as 'category',products.price, products.manufacturer FROM `products` INNER JOIN categories ON products.category_id = categories.id where `delete_character` is null";
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
@@ -115,5 +114,25 @@ class AdminModel
     {
         $sql = "UPDATE `products` SET `delete_character` = '$char' WHERE `products`.`id` = '$id';";
         $this->db->query($sql);
+    }
+    public function getCategory(){
+        $sql = "SELECT * FROM `categories`";
+        $result = $this->db->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function addProduct($name, $describtion, $characters, $category_id, $price, $manufacturer, $photo){
+        $mysqli = $this->db = new \mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $sql = "INSERT INTO `products` (`id`, `name`, `describtion`, `characters`, `category_id`, `price`, `manufacturer`, `delete_character`) VALUES (NULL, '$name', '$describtion', '$characters', '$category_id', '$price', '$manufacturer', NULL);";
+        $this->db->query($sql);
+        $id = mysqli_insert_id($mysqli);
+        for($i = 0; $i < count($photo); $i++){
+            if($i === 0){
+                $sql = "INSERT INTO `product_images` (`id`, `product_id`, `img_url`, `char`) VALUES (NULL, '$id', '$photo[$i]', 'main');";
+                $this->db->query($sql);
+            } else {
+                $sql = "INSERT INTO `product_images` (`id`, `product_id`, `img_url`, `char`) VALUES (NULL, '$id', '$photo[$i]', NULL);";
+                $this->db->query($sql);
+            }
+        }
     }
 }

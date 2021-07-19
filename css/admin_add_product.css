@@ -1,0 +1,16 @@
+div#main{
+    min-width: 85vw;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 5vh 25vw;
+    max-width: 90vw;
+}
+form label{
+    margin-top: 15px;
+}
+form input[type='submit']{
+    margin-top: 15px;
+    max-width: 8vw;
+}

@@ -9,6 +9,12 @@
         <link rel="stylesheet" href="/css/index.css">
         <link rel="stylesheet" href="/css/admin_default.css">
         <link rel="stylesheet" href="/css/<?=stristr($pageFile, '.', true)?>.css">
+        <script type="text/javascript" src="/tinymce/js/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript">
+            tinymce.init({
+                selector: "textarea"
+            });
+        </script>
     </head>
     <body>
         <header>
@@ -27,7 +33,7 @@
                     <li>Product
                         <ul>
                             <li><a href="<?= \core\Router::getUrl('view', 'all_products')?>">All Products</a></li>
-                            <li>Add Product</li>
+                            <li><a href="<?= \core\Router::getUrl('view', 'add_product')?>">Add Product</a></li>
                         </ul>
                     </li>
                     <li>Category

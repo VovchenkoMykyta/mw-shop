@@ -3,7 +3,7 @@
 
 namespace controllers;
 
-
+include_once "config.php";
 use core\BaseController;
 use core\Router;
 use core\View;
@@ -87,6 +87,22 @@ class AdminController extends BaseController
         $char = 'deleted';
         $model = new AdminModel();
         $model->deleteProduct($id, $char);
+        Router::redirect('view', 'all_products');
+    }
+
+    public function addProduct(){
+        $product = filter_input_array(0, FILTER_DEFAULT, true);
+        $pathPhoto = [];
+        foreach ($_FILES["img"]["error"] as $key => $error) {
+            if ($error == UPLOAD_ERR_OK) {
+                $tmp_name = $_FILES["img"]["tmp_name"][$key];
+                $name = basename($_FILES["img"]["name"][$key]);
+                array_push($pathPhoto, '/images/'.$_FILES['img']['name'][$key]);
+                move_uploaded_file($tmp_name, UPLOADS_DIR.$name);
+            }
+        }
+        $model = new AdminModel();
+        $model->addProduct($product['name'], $product['describtion'], $product['characters'], $product['category'], $product['price'], $product['manufacturer'], $pathPhoto);
         Router::redirect('view', 'all_products');
     }
 }

@@ -1,17 +1,17 @@
 <?php
 $model = new \models\AdminModel();
-$products = $model->getProducts();
+$products = $model->getProducts()
 ?>
 
 <div><h2>All products</h2></div>
 
-<table><tr><th>id</th><th>name</th><th>descr...</th><th>charact...</th><th>cat...</th><th>price</th><th>manuf...</th><th colspan='3'>options</th></tr>
+<table><tr><th>id</th><th>name</th><th>descr...</th><th>charact...</th><th>category</th><th>price</th><th>manuf...</th><th colspan='3'>options</th></tr>
     <?php foreach ($products as $product): ?>
         <tr><td><?= $product['id'] ?></td>
             <td><?= $product['name'] ?></td>
             <td><?= $product['describtion'] ?></td>
             <td><?= $product['characters'] ?></td>
-            <td><?= $product['category_id']?></td>
+            <td><?= $product['category']?></td>
             <td><?= $product['price'] ?></td>
             <td><?= $product['manufacturer'] ?></td>
             <td class='form'>
@@ -26,7 +26,7 @@ $products = $model->getProducts();
                 </form>
             </td>
             <td class='form'>
-                <form action='' method='post'>
+                <form action='<?= \core\Router::getUrl('view', 'all_products')?>' method='post'>
                     <input type='submit' value='Add'>
                 </form>
             </td></tr>
