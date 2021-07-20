@@ -24,20 +24,20 @@
             <div id="lsb">
                 <ul>
                     <li><a href="<?= \core\Router::getUrl('view', 'admin_index')?>">Main</a></li>
-                    <li>User
-                        <ul>
+                    <li class="main">User
+                        <ul class="daughter">
                             <li><a href="<?= \core\Router::getUrl('view', 'add_user')?>">Add User</a></li>
                             <li><a href="<?= \core\Router::getUrl('view', 'all_users')?>">Users Info</a></li>
                         </ul>
                     </li>
-                    <li>Product
-                        <ul>
+                    <li class="main">Product
+                        <ul class="daughter">
                             <li><a href="<?= \core\Router::getUrl('view', 'all_products')?>">All Products</a></li>
                             <li><a href="<?= \core\Router::getUrl('view', 'add_product')?>">Add Product</a></li>
                         </ul>
                     </li>
-                    <li>Category
-                        <ul>
+                    <li class="main">Category
+                        <ul class="daughter">
                             <li>All Categories</li>
                             <li>Add Category</li>
                         </ul>
