@@ -60,7 +60,14 @@ body main{
 }
 main div.main_photo{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+}
+main div.main_photo div{
+    flex-grow: 1;
+}
+main div.main_photo div.break{
+
 }
 /*==================================================|End of Body|=====================================================*/
 
