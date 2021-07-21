@@ -18,47 +18,69 @@ class ViewController
         $view = new View();
         $view->render('main.php', 'default_view.php');
     }
-    public function pants(){
+
+    public function pants()
+    {
         $view = new View();
         $view->render('pants_index.php', 'default_view.php');
     }
-    public function t_shirts(){
+
+    public function t_shirts()
+    {
         $view = new View();
         $view->render('t-shirt_index.php', 'default_view.php');
     }
-    public function underwear(){
+
+    public function underwear()
+    {
         $view = new View();
         $view->render('underwear_index.php', 'default_view.php');
     }
-    public function boots(){
+
+    public function boots()
+    {
         $view = new View();
         $view->render('boots_index.php', 'default_view.php');
     }
-    public function admin_index(){
+
+    public function admin_index()
+    {
         $view = new View();
         $view->render('admin_index_view.php', 'admin_default_view.php');
     }
-    public function add_user(){
+
+    public function add_user()
+    {
         $view = new View();
         $view->render('admin_add_user_view.php', 'admin_default_view.php');
     }
-    public function add_phone(){
+
+    public function add_phone()
+    {
         $view = new View();
         $view->render('admin_add_user_phone.php', 'admin_default_view.php');
     }
-    public function all_users(){
+
+    public function all_users()
+    {
         $view = new View();
         $view->render('admin_all_users.php', 'admin_default_view.php');
     }
-    public function edit_user(){
+
+    public function edit_user()
+    {
         $view = new View();
         $view->render('admin_edit_user.php', 'admin_default_view.php');
     }
-    public function all_products(){
+
+    public function all_products()
+    {
         $view = new View();
         $view->render('admin_all_products.php', 'admin_default_view.php');
     }
-    public function add_product(){
+
+    public function add_product()
+    {
         $view = new View();
         $view->render('admin_add_product.php', 'admin_default_view.php');
     }
