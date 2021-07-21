@@ -38,7 +38,7 @@
                     </li>
                     <li class="main">Category
                         <ul class="daughter">
-                            <li>All Categories</li>
+                            <li><a href="<?= \core\Router::getUrl('view', 'all_categories')?>">All Categories</a></li>
                             <li>Add Category</li>
                         </ul>
                     </li>

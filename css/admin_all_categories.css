@@ -1,0 +1,21 @@
+table{
+    box-sizing: border-box;
+    border-collapse: collapse;
+    margin: 30px 80px;
+}
+table th,tr,td{
+    border: 1px solid black;
+    padding: 10px;
+}
+table td{
+    max-width: 15vw;
+}
+main table td.form{
+    max-width: 6vw;
+}
+main div#main{
+    display: flex;
+    flex-direction: column;
+    min-width: 75vw;
+    align-items: center;
+}

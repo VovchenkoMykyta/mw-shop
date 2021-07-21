@@ -135,4 +135,10 @@ class AdminModel
             }
         }
     }
+
+    public function getCategories(){
+        $sql = "SELECT id, `name` FROM `categories`";
+        $result = $this->db->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
