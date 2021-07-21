@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 18, 2021 at 07:06 PM
+-- Generation Time: Jul 21, 2021 at 05:52 PM
 -- Server version: 8.0.24
 -- PHP Version: 8.0.7
 
@@ -38,7 +38,21 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `img_url`, `name`) VALUES
-(1, NULL, 'Джинсы');
+(1, NULL, 'Джинсы'),
+(2, NULL, 'Рубашки'),
+(3, NULL, 'Штаны');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `characters`
+--
+
+CREATE TABLE `characters` (
+  `id` bigint UNSIGNED NOT NULL,
+  `product_id` bigint UNSIGNED NOT NULL,
+  `character` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -121,7 +135,8 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `name`, `describtion`, `characters`, `category_id`, `price`, `manufacturer`, `delete_character`) VALUES
 (1, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n79% хлопок, 20% переработанный хлопок, 1% эластан.', 1, '664', 'no name', NULL),
 (2, 'Джинсы из жесткого хлопкового материала', 'Джинсы из жесткого хлопкового материала', 'Машинная стирка.\r\n100% хлопок.', 1, '532', 'no name', NULL),
-(3, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n98% хлопок, 2% эластан.', 1, '664', 'no name', NULL);
+(3, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n98% хлопок, 2% эластан.', 1, '664', 'no name', NULL),
+(12, 'Рубашка', '<p>Рубашка</p>', '<p>Обычная рубашка</p>', 2, '425', 'no name', NULL);
 
 -- --------------------------------------------------------
 
@@ -150,7 +165,9 @@ INSERT INTO `product_images` (`id`, `product_id`, `img_url`, `char`) VALUES
 (7, 2, '/images/mans_jeans007.jpg', NULL),
 (8, 2, '/images/mans_jeans008.jpg', NULL),
 (9, 3, '/images/mans_jeans009.jpg', 'main'),
-(10, 3, '/images/mans_jeans010.jpg', NULL);
+(10, 3, '/images/mans_jeans010.jpg', NULL),
+(29, 12, '/images/mens_skorts001.jpg', 'main'),
+(30, 12, '/images/mens_skorts002.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -189,6 +206,13 @@ INSERT INTO `users` (`id`, `login`, `password`, `email`, `creation_date`, `delet
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `characters`
+--
+ALTER TABLE `characters`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `orders`
@@ -240,7 +264,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `characters`
+--
+ALTER TABLE `characters`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -264,13 +294,13 @@ ALTER TABLE `phone_numbers`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -281,6 +311,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `characters`
+--
+ALTER TABLE `characters`
+  ADD CONSTRAINT `characters_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `orders_products`
