@@ -20,6 +20,15 @@ form fieldset legend{
 form input{
     margin: 10px;
 }
+form input[name='login']{
+    margin-left: 30px;
+}
+form input[name='email']{
+    margin-left: 30px;
+}
+form input[name='phone']{
+    margin-left: 30px;
+}
 form input[type='submit']{
     min-width: 15vw;
     min-height: 3vh;
