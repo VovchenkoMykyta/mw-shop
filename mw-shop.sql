@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 21, 2021 at 05:52 PM
+-- Generation Time: Jul 21, 2021 at 06:46 PM
 -- Server version: 8.0.24
 -- PHP Version: 8.0.7
 
@@ -136,7 +136,9 @@ INSERT INTO `products` (`id`, `name`, `describtion`, `characters`, `category_id`
 (1, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n79% хлопок, 20% переработанный хлопок, 1% эластан.', 1, '664', 'no name', NULL),
 (2, 'Джинсы из жесткого хлопкового материала', 'Джинсы из жесткого хлопкового материала', 'Машинная стирка.\r\n100% хлопок.', 1, '532', 'no name', NULL),
 (3, 'Эластичные джинсы', 'Эластичные джинсы', 'Машинная стирка.\r\n98% хлопок, 2% эластан.', 1, '664', 'no name', NULL),
-(12, 'Рубашка', '<p>Рубашка</p>', '<p>Обычная рубашка</p>', 2, '425', 'no name', NULL);
+(12, 'Рубашка', '<p>Рубашка</p>', '<p>Обычная рубашка</p>', 2, '425', 'no name', NULL),
+(13, 'Простая в уходе рубашка', '<h1 style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: 300; font-stretch: normal; font-size: 18px; line-height: normal; font-family: azo-sans, sans-serif; vertical-align: baseline; background: #ffffff; color: #111111;\">Простая в уходе рубашка</h1>', '<h1 style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: 300; font-stretch: normal; font-size: 18px; line-height: normal; font-family: azo-sans, sans-serif; vertical-align: baseline; background: #ffffff; color: #111111;\">Простая в уходе рубашка</h1>', 2, '425', 'no name', NULL),
+(14, 'Простая в уходе рубашка', '<h1 style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: 300; font-stretch: normal; font-size: 18px; line-height: normal; font-family: azo-sans, sans-serif; vertical-align: baseline; background: #ffffff; color: #111111;\">Простая в уходе рубашка</h1>', '<h1 style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: 300; font-stretch: normal; font-size: 18px; line-height: normal; font-family: azo-sans, sans-serif; vertical-align: baseline; background: #ffffff; color: #111111;\">Простая в уходе рубашка</h1>', 2, '425', 'no name', NULL);
 
 -- --------------------------------------------------------
 
@@ -167,7 +169,10 @@ INSERT INTO `product_images` (`id`, `product_id`, `img_url`, `char`) VALUES
 (9, 3, '/images/mans_jeans009.jpg', 'main'),
 (10, 3, '/images/mans_jeans010.jpg', NULL),
 (29, 12, '/images/mens_skorts001.jpg', 'main'),
-(30, 12, '/images/mens_skorts002.jpg', NULL);
+(30, 12, '/images/mens_skorts002.jpg', NULL),
+(34, 13, '/images/mens_skirts_003.jpg', 'main'),
+(35, 13, '/images/mens_skirts_004.jpg', NULL),
+(36, 14, '/images/mens_skirts_005.jpg', 'main');
 
 -- --------------------------------------------------------
 
@@ -294,13 +299,13 @@ ALTER TABLE `phone_numbers`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `users`
