@@ -5,6 +5,9 @@ div#main{
     justify-content: center;
     align-items: center;
 }
+main div#lsb{
+    background-color:#050715;
+}
 form{
     display: flex;
     flex-direction: column;
