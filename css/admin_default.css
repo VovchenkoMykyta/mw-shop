@@ -6,12 +6,13 @@ body{
     margin: 0 5px;
 }
 header{
-    min-height: 15vh;
+    min-height: 10vh;
     display: flex;
     justify-content: center;
 }
-main{
+body main{
     display: flex;
+    min-height: 85vh;
 }
 div#header{
     text-align: center;
