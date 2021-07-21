@@ -14,7 +14,7 @@ class FrontModel
     }
 
     public function getAllImg(){
-        $sql = "SELECT img_url, `char`, product_id FROM `product_images` where `char` is not null;";
+        $sql = "SELECT img_url, `char`, product_id FROM `product_images` INNER JOIN products ON `product_images`.`product_id` = `products`.`id` where `product_images`.`char` is not null and `products`.`delete_character` is null";
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
