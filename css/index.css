@@ -63,8 +63,31 @@ main div.main_photo{
     flex-wrap: wrap;
     justify-content: space-between;
 }
+main div.main_photo>div{
+    margin: 20px;
+}
 main div.main_photo div{
-    flex-grow: 1;
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    max-width: 400px;
+}
+main div.main_photo div img{
+    max-width: 357px;
+}
+main div.main_photo div.footer_product{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+main div.main_photo div.footer_product div{
+    max-width: 6vw;
+}
+form input#buy_input{
+    min-width: 6vw;
 }
 /*==================================================|End of Body|=====================================================*/
 
