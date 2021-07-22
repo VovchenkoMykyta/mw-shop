@@ -2,7 +2,7 @@
 
 
 namespace models;
-include_once "config.php";
+
 
 class FrontModel
 {
