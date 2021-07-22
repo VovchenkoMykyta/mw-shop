@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0 5px;
     padding: 0;
     box-sizing: border-box;
@@ -6,30 +6,34 @@
 
 /*====================================================|Header|========================================================*/
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     background-color: black;
     color: white;
     max-height: 8vh;
 }
-header a{
+
+header a {
     text-decoration: none;
     color: white;
     min-height: 132px;
     padding-top: 5%;
 }
+
 header div {
     display: flex;
     min-width: 25%;
     justify-content: space-around;
     align-items: center;
 }
-header div a>div{
+
+header div a > div {
     min-height: 4vh;
     margin-top: 2vh;
 }
-header img#main_logo{
+
+header img#main_logo {
     width: 5vw;
 }
 
@@ -37,21 +41,24 @@ header img#main_logo{
 
 /*======================================================|Nav|=========================================================*/
 
-nav{
+nav {
 
     background-color: black;
     color: white;
 }
-nav ul{
+
+nav ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-height: 5vh;
 }
-nav ul li{
+
+nav ul li {
     list-style-type: none;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
     color: white;
 }
@@ -60,52 +67,60 @@ nav ul li a{
 
 /*=====================================================|Body|=========================================================*/
 
-body main{
+body main {
     min-height: 80vh;
 }
-main div.main_photo{
+
+main div.main_photo {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
-main div.main_photo>div{
+
+main div.main_photo > div {
     margin: 20px;
 }
-main div.main_photo div{
+
+main div.main_photo div {
     flex-grow: 3;
     display: flex;
     flex-direction: column;
     justify-content: end;
     max-width: 400px;
 }
-main div.main_photo div img{
+
+main div.main_photo div img {
     max-width: 357px;
 }
-main div.main_photo div.footer_product{
+
+main div.main_photo div.footer_product {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
 }
-main div.main_photo div.footer_product div{
+
+main div.main_photo div.footer_product div {
     max-width: 6vw;
 }
-form input#buy_input{
+
+form input#buy_input {
     min-width: 6vw;
 }
+
 /*==================================================|End of Body|=====================================================*/
 
 /*====================================================|Footer|========================================================*/
 
-footer{
-    background-color: rgba(43,43,43,0.1);
+footer {
+    background-color: rgba(43, 43, 43, 0.1);
     min-height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-footer a{
+
+footer a {
     text-decoration: none;
     color: black;
 }
