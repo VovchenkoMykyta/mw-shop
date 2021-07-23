@@ -21,7 +21,7 @@ $prices = $model->getPrice();
                 <?php foreach ($prices as $price): ?>
                     <?php if ($image['product_id'] === $price['id']): ?>
                         <?= $price['price'] ?>
-                    <?endif;?>
+                    <?php endif;?>
                 <?php endforeach; ?>
             </div>
         </div>
