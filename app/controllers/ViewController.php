@@ -89,4 +89,9 @@ class ViewController
         $view = new View();
         $view->render('admin_all_categories.php', 'admin_default_view.php');
     }
+
+    public function product(){
+        $view = new View();
+        $view->render('one_product.php', 'default_view.php');
+    }
 }

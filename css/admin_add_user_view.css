@@ -45,7 +45,7 @@ main div#lsb{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#050715;
+    /*background-color:#050715;*/
 }
 main div#main{
     display: flex;

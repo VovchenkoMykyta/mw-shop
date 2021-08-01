@@ -115,18 +115,22 @@ class AdminModel
         $sql = "UPDATE `products` SET `delete_character` = '$char' WHERE `products`.`id` = '$id';";
         $this->db->query($sql);
     }
-    public function getCategory(){
+
+    public function getCategory()
+    {
         $sql = "SELECT * FROM `categories`";
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function addProduct($name, $describtion, $characters, $category_id, $price, $manufacturer, $photo){
+
+    public function addProduct($name, $describtion, $characters, $category_id, $price, $manufacturer, $photo)
+    {
         $mysqli = $this->db = new \mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         $sql = "INSERT INTO `products` (`id`, `name`, `describtion`, `characters`, `category_id`, `price`, `manufacturer`, `delete_character`) VALUES (NULL, '$name', '$describtion', '$characters', '$category_id', '$price', '$manufacturer', NULL);";
         $this->db->query($sql);
         $id = mysqli_insert_id($mysqli);
-        for($i = 0; $i < count($photo); $i++){
-            if($i === 0){
+        for ($i = 0; $i < count($photo); $i++) {
+            if ($i === 0) {
                 $sql = "INSERT INTO `product_images` (`id`, `product_id`, `img_url`, `char`) VALUES (NULL, '$id', '$photo[$i]', 'main');";
                 $this->db->query($sql);
             } else {
@@ -136,7 +140,8 @@ class AdminModel
         }
     }
 
-    public function getCategories(){
+    public function getCategories()
+    {
         $sql = "SELECT id, `name` FROM `categories`";
         $result = $this->db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);

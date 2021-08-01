@@ -13,9 +13,9 @@ $prices = $model->getPrice();
         <?php endif;?>
         <img src="<?= str_replace(" ", "", $image['img_url']) ?>" alt="<?= $image['img_url'] ?>">
         <div class="footer_product">
-            <form action="" method="post">
+            <form action="<?= \core\Router::getUrl('view', 'product') ?>" method="post">
                 <input type="hidden" name="id" value="<?= $image['product_id']?>"/>
-                <input type="submit" value="Buy" id="buy_input">
+                <input type="submit" value="Details" id="buy_input">
             </form>
             <div>
                 <?php foreach ($prices as $price): ?>
