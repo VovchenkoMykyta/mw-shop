@@ -8,11 +8,15 @@ table th,tr,td{
     padding: 10px;
 }
 table td{
-    max-width: 17vw;
+    max-width: 19vw;
 }
 main div#main{
     display: flex;
     flex-direction: column;
     min-width: 75vw;
     align-items: center;
+}
+div#table{
+    max-width: 84vw;
+    overflow: scroll;
 }

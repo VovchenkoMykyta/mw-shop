@@ -2,6 +2,7 @@
     margin: 0 5px;
     padding: 0;
     box-sizing: border-box;
+    border-collapse: collapse;
 }
 
 /*====================================================|Header|========================================================*/
@@ -113,7 +114,7 @@ form input#buy_input {
 /*====================================================|Footer|========================================================*/
 
 footer {
-    background-color: rgba(43, 43, 43, 0.1);
+    background-color: rgba(43, 43, 43, 0.35);
     min-height: 5vh;
     display: flex;
     justify-content: center;
